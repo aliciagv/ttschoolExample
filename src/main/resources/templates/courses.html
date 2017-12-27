@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>CRUD SPRING MVC CON MYSQL</title>
+</head>
+<body>
+ <table>
+ 	<thead>
+ 		<tr>
+ 			<th>Id</th>
+ 			<th>Name</th>
+ 			<th>Description</th>
+ 			<th>Price</th>
+ 			<th>Hours</th>
+ 			<th>Editar</th>
+    		<th>Eliminar</th>		
+ 		</tr>
+ 	</thead>
+ 	<tbody>
+ 	<tr th:each="course : ${courses}">
+ 			<td> <span th:text="${course.id}"></span></td>
+ 			<td> <span th:text="${course.name}"></span></td>
+ 			<td> <span th:text="${course.description}"></span></td>
+ 			<td> <span th:text="${course.price}"></span></td>
+ 			<td> <span th:text="${course.hours}"></span></td>
+ 			 <td><a th:href="@{'/courses/editcourse/' + ${course.id}}" > Editar</a></td>
+     		 <td><a th:href="@{'/courses/deletecourse/'+ ${course.id}}"> Eliminar</a></td>
+ 			
+ 	</tr>
+ 	</tbody>
+ </table>
+ 
+ <form action="#" th:action="@{/courses/addcourse}" th:object="${course}" method="post">
+	<p>Name: <input type="text" th:field="*{name}"/></p>
+	<p>Description: <input type="text" th:field="*{description}"/></p>
+	<p>Price: <input type="text" th:field="*{price}"/></p>
+	<p>Hours: <input type="text" th:field="*{hours}"/></p>
+	<p> <input type="submit" value="Submit"/></p>
+ 
+ </form>
+
+</body>
+</html>

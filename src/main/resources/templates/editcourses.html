@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row-fluid">
+   <div class="col-md-6">
+    <h4 class="text-center">Editar Curso</h4>
+    <form action="#" th:action="@{/courses/editcourse}" th:object="${course}" method="post">
+     <input type="hidden" th:field="*{id}"  class="form-control"/>
+     <div class="form-group">
+      <label for = "name">Nombre: </label>
+      <input type="text" th:field="*{name}"  class="form-control"/>
+	</div>
+	
+     <div class="form-group">
+      <label for = "name">Descripción: </label>
+       <input type="text" th:field="*{description}"  class="form-control"/>
+     </div>
+     
+     <div class="form-group">
+     <label for = "name">Precio: </label>
+       <input type="text" th:field="*{price}"  class="form-control"/>
+     </div>
+     
+     <div class="form-group">
+     <label for = "name">Horas: </label>
+       <input type="text" th:field="*{hours}"  class="form-control"/>
+     </div>
+     
+     <div class="form-group">
+      <input type="submit" value="Editar" class="btn btn-success"/>
+     </div>
+     </form>
+   </div>
+  </div>
+ </div>
+</body>
+</html>
